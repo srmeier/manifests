@@ -8,9 +8,7 @@ resources:
   - ../ibm/application/jupyter-web-app
   - ../ibm/application/notebook-controller
   - ../ibm/application/profiles
-  # - ../../tektoncd/tektoncd-install/base
-  # - ../../tektoncd/tektoncd-dashboard/base
-  - ../../pipeline/upstream/env/ibm
+  - ../../pipeline/installs/tekton
   - ../../pytorch-job/pytorch-job-crds/overlays/application
   - ../../pytorch-job/pytorch-operator/overlays/application
   - ../../tf-training/tf-job-crds/overlays/application
