@@ -5,14 +5,12 @@ resources:
   - ../../admission-webhook/webhook/v3
   - ../../common/centraldashboard/overlays/stacks
   - ../../kubeflow-roles/base
-  - application/jupyter-web-app
-  - application/notebook-controller
-  - application/profiles
-  - ../../argo/base_v3
-  - ../../pipeline/minio/installs/ibm
-  - ../../pipeline/mysql/installs/ibm
-  - ../../pipeline/installs/generic
-  - application/metadata
+  - ../ibm/application/jupyter-web-app
+  - ../ibm/application/notebook-controller
+  - ../ibm/application/profiles
+  # - ../../tektoncd/tektoncd-install/base
+  # - ../../tektoncd/tektoncd-dashboard/base
+  - ../../pipeline/upstream/env/ibm
   - ../../pytorch-job/pytorch-job-crds/overlays/application
   - ../../pytorch-job/pytorch-operator/overlays/application
   - ../../tf-training/tf-job-crds/overlays/application
@@ -20,18 +18,6 @@ resources:
   - ../../katib/installs/katib-standalone-ibm
   - ../../seldon/seldon-core-operator/overlays/application
 configMapGenerator:
-- name: pipeline-mysql-parameters
-  behavior: merge
-  literals:
-  - mysqlPvcName=mysql-pv-claim
-- name: pipeline-minio-parameters
-  behavior: merge
-  literals:
-  - minioPvcName=minio-pv-claim
-- name: workflow-controller-parameters
-  behavior: merge
-  literals:
-  - containerRuntimeExecutor=pns
 - name: profiles-config
   behavior: merge
   literals:
