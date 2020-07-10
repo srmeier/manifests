@@ -9,6 +9,7 @@ resources:
   - ../ibm/application/notebook-controller
   - ../ibm/application/profiles
   - ../../pipeline/installs/tekton
+  - ../ibm/application/metadata
   - ../../pytorch-job/pytorch-job-crds/overlays/application
   - ../../pytorch-job/pytorch-operator/overlays/application
   - ../../tf-training/tf-job-crds/overlays/application
