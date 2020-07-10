@@ -54,13 +54,13 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: tektoncd/tektoncd-install
-      name: tektoncd-install
+        path: tektoncd/tektoncd-install/base
+    name: tektoncd-install
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: tektoncd/tektoncd-dashboard
-      name: tektoncd-dashboard
+        path: tektoncd/tektoncd-dashboard/base
+    name: tektoncd-dashboard
   # Install Kubeflow applications.
   - kustomizeConfig:
       repoRef:
