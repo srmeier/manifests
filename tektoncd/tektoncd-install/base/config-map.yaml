@@ -78,8 +78,8 @@ metadata:
   name: feature-flags
 data:
   disable-affinity-assistant: "false"
-  disable-home-env-overwrite: "false"
-  disable-working-directory-overwrite: "false"
+  disable-home-env-overwrite: "true"
+  disable-working-directory-overwrite: "true"
   running-in-environment-with-injected-sidecars: "true"
 
 ---
