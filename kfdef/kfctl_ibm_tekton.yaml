@@ -4,6 +4,12 @@ metadata:
   namespace: kubeflow
 spec:
   applications:
+  # openshift specific, uncomment this component if on openshift clusters
+  # - kustomizeConfig:
+  #     repoRef:
+  #       name: manifests
+  #       path: openshift/openshift-scc/base
+  #   name: openshift-scc
   # istio related components
   - kustomizeConfig:
       repoRef:
@@ -63,13 +69,7 @@ spec:
         name: manifests
         path: stacks/ibm/components/kfp-tekton
     name: kubeflow-apps
-  # others
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: stacks/ibm/application/tensorboard
-    name: tensorboard
   repos:
   - name: manifests
-    uri: /Users/wzhuang/go/src/github.com/kubeflow/manifests
+    uri: https://github.com/adrian555/manifests/archive/update-manifests-repo-link.tar.gz
   version: master
