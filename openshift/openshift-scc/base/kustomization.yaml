@@ -4,6 +4,13 @@ namespace: kubeflow
 resources:
 - kubeflow-anyuid-scc-istio.yaml
 - kubeflow-anyuid-scc.yaml
+- tekton-anyuid-scc.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+- name: scc-namespace-check
+  envs:
+  - params.env
 vars:
   - name: NAMESPACE
     objref:
@@ -12,7 +19,19 @@ vars:
       name: scc-namespace-check
     fieldref:
       fieldpath: metadata.namespace
-configMapGenerator:
-  - name: scc-namespace-check
+  - name: TEKTON-NAMESPACE
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: scc-namespace-check
+    fieldref:
+      fieldpath: data.tekton-namespace
+  - name: ISTIO-NAMESPACE
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: scc-namespace-check
+    fieldref:
+      fieldpath: data.istio-namespace
 configurations:
 - params.yaml
