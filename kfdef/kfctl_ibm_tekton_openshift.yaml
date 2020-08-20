@@ -4,25 +4,32 @@ metadata:
   namespace: kubeflow
 spec:
   applications:
+  # openshift specific, uncomment this component if on openshift clusters
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/istio-stack
+        path: openshift/openshift-scc/base
+    name: openshift-scc
+  # istio related components
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: stacks/openshift/application/istio-stack
     name: istio-stack
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/cluster-local-gateway
+        path: stacks/openshift/application/cluster-local-gateway
     name: cluster-local-gateway
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/istio
+        path: stacks/openshift/application/istio
     name: istio
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/add-anonymous-user-filter
+        path: stacks/openshift/application/add-anonymous-user-filter
     name: add-anonymous-user-filter
   # application
   - kustomizeConfig:
@@ -34,69 +41,69 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/cert-manager-crds
+        path: stacks/openshift/application/cert-manager-crds
     name: cert-manager-crds
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/cert-manager-kube-system-resources
+        path: stacks/openshift/application/cert-manager-kube-system-resources
     name: cert-manager-kube-system-resources
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/cert-manager
+        path: stacks/openshift/application/cert-manager
     name: cert-manager
   # bootstrap
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/bootstrap
+        path: stacks/openshift/application/bootstrap
     name: bootstrap
   # kubeflow apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/base
+        path: stacks/openshift/base
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/profile-control-plane
+        path: stacks/openshift/components/profile-control-plane
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/metadata
+        path: stacks/openshift/components/metadata
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/tektoncd
+        path: stacks/openshift/components/tektoncd
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/kfp-tekton
+        path: stacks/openshift/components/kfp-tekton
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/notebooks
+        path: stacks/openshift/components/notebooks
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/katib
+        path: stacks/openshift/components/katib
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/pytorch-job
+        path: stacks/openshift/components/pytorch-job
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/components/tf-job
+        path: stacks/openshift/components/tf-job
     name: kubeflow-apps
   # others:
   - kustomizeConfig:
@@ -107,7 +114,7 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/spark-operator
+        path: stacks/openshift/application/spark-operator
     name: spark-operator
   - kustomizeConfig:
       repoRef:
@@ -122,12 +129,12 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/spartakus
+        path: stacks/openshift/application/spartakus
     name: spartakus
   - kustomizeConfig:
       repoRef:
-        name: manifests
-        path: stacks/ibm/application/seldon-core-operator
+        name: odh-manifests
+        path: stacks/openshift/application/seldon-core-operator
     name: seldon
   repos:
   - name: manifests
