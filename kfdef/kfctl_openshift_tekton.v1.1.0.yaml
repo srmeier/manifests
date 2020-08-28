@@ -1,16 +1,15 @@
 apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
+  name: kftek
   namespace: kubeflow
 spec:
   applications:
-  # openshift specific, uncomment this component if on openshift clusters
   - kustomizeConfig:
       repoRef:
         name: manifests
         path: openshift/openshift-scc/base
     name: openshift-scc
-  # istio related components
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -31,13 +30,11 @@ spec:
         name: manifests
         path: stacks/openshift/application/add-anonymous-user-filter
     name: add-anonymous-user-filter
-  # application
   - kustomizeConfig:
       repoRef:
         name: manifests
         path: application/v3
     name: application
-  # cert-manager
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -53,13 +50,6 @@ spec:
         name: manifests
         path: stacks/openshift/application/cert-manager
     name: cert-manager
-  # bootstrap
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: stacks/openshift/application/bootstrap
-    name: bootstrap
-  # kubeflow apps
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -68,12 +58,12 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/openshift/components/profile-control-plane
+        path: stacks/openshift/components/metadata
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/openshift/components/metadata
+        path: stacks/openshift/components/profile-control-plane
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
@@ -105,7 +95,6 @@ spec:
         name: manifests
         path: stacks/openshift/components/tf-job
     name: kubeflow-apps
-  # others:
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -119,21 +108,6 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: knative/installs/generic
-    name: knative
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: kfserving/installs/generic
-    name: kfserving
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: stacks/openshift/application/spartakus
-    name: spartakus
-  - kustomizeConfig:
-      repoRef:
-        name: odh-manifests
         path: stacks/openshift/application/seldon-core-operator
     name: seldon
   repos:

@@ -12,7 +12,3 @@ resources:
 - ../../../../metadata/overlays/istio/virtual-service-metadata-grpc.yaml
 configurations:
 - ../../../../metadata/overlays/istio/params.yaml
-images:
-  - name: mysql
-    newTag: "5.6"
-    newName: mysql

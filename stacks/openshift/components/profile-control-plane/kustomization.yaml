@@ -2,7 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kubeflow
 resources:
-  - ../../../../admission-webhook/webhook/v3
   - ../../../../common/centraldashboard/overlays/stacks
   - ../../../../kubeflow-roles/base
   - ../../application/profiles
@@ -11,7 +10,3 @@ configMapGenerator:
   behavior: merge
   literals:
   - admin=example@kubeflow.org
-images:
-- name: gcr.io/kubeflow-images-public/profile-controller
-  newName: quay.io/kubeflow/profile-controller
-  newTag: v0.7.0
