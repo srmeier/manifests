@@ -93,11 +93,6 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/openshift/components/katib
-    name: kubeflow-apps
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
         path: stacks/openshift/components/pytorch-job
     name: kubeflow-apps
   - kustomizeConfig:
@@ -116,26 +111,16 @@ spec:
         name: manifests
         path: stacks/openshift/application/spark-operator
     name: spark-operator
-  # - kustomizeConfig:
-  #     repoRef:
-  #       name: manifests
-  #       path: knative/installs/generic
-  #   name: knative
-  # - kustomizeConfig:
-  #     repoRef:
-  #       name: manifests
-  #       path: kfserving/installs/generic
-  #   name: kfserving
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/openshift/application/spartakus
-    name: spartakus
+        path: knative/installs/generic
+    name: knative
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/openshift/application/seldon-core-operator
-    name: seldon
+        path: kfserving/installs/generic
+    name: kfserving
   repos:
   - name: manifests
     uri: https://github.com/adrian555/manifests/archive/update-manifests-repo-link.tar.gz
