@@ -65,15 +65,15 @@ spec:
         name: manifests
         path: stacks/openshift/base
     name: kubeflow-apps
+  # - kustomizeConfig:
+  #     repoRef:
+  #       name: manifests
+  #       path: stacks/openshift/components/admission-webhook
+  #   name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
         name: manifests
         path: stacks/openshift/components/profile-control-plane
-    name: kubeflow-apps
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: stacks/openshift/components/metadata
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:
@@ -84,6 +84,11 @@ spec:
       repoRef:
         name: manifests
         path: stacks/openshift/components/kfp-tekton
+    name: kubeflow-apps
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: stacks/openshift/components/metadata
     name: kubeflow-apps
   - kustomizeConfig:
       repoRef:

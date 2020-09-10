@@ -38,6 +38,8 @@ users:
 - system:serviceaccount:$(NAMESPACE):kubeflow-pipelines-cache-deployer-sa
 # for kfserving
 - system:serviceaccount:$(NAMESPACE):kfserving
+# for admission-webhook
+- system:serviceaccount:$(NAMESPACE):admission-webhook-service-account
 volumes:
 - configMap
 - downwardAPI
