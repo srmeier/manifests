@@ -11,6 +11,7 @@ resources:
 - ../../kfserving-install/base/secret.yaml
 - ../../kfserving-install/base/statefulset.yaml
 - ../../kfserving-install/base/service.yaml
+- ../../kfserving-install/base/service-account.yaml
 - ../../kfserving-install/base/webhook.yaml
 - ../../kfserving-install/overlays/application
 commonLabels:

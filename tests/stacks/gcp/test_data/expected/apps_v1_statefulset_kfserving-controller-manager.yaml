@@ -56,11 +56,11 @@ spec:
           value: kfserving-webhook-server-cert
         - name: ENABLE_WEBHOOK_NAMESPACE_SELECTOR
           value: enabled
-        image: gcr.io/kfserving/kfserving-controller:v0.3.0
+        image: aipipeline/kfserving-controller:v0.3.0
         imagePullPolicy: Always
         name: manager
         ports:
-        - containerPort: 443
+        - containerPort: 9443
           name: webhook-server
           protocol: TCP
         resources:
@@ -74,6 +74,8 @@ spec:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
+      serviceAccount: kfserving
+      serviceAccountName: kfserving
       terminationGracePeriodSeconds: 10
       volumes:
       - name: cert
