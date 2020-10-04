@@ -1,3 +1,5 @@
+Manifests for CIO Hackathon 2020.
+
 # Manifests
 
 This repo contains [kustomize](https://kustomize.io/) packages for deploying Kubeflow applications. 
